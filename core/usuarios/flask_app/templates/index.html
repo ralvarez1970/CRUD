@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários by RA</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<html lang="en">
+
+<body>
+    <h1 style="margin-top: 30px;">Usuários no sistema</h1>
+
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">email</th>
+                <th scope="col">Criado em:</th>
+                <th scope="col"></th>
+            </tr>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.sobrenome}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.created_at}}</td>
+                <td>
+                    <a class="btn btn-info atam" href="/usuario/{{usuario.id}}">Detalhar</a>
+                    <a class="btn btn-warning atam" href="/editar/{{usuario.id}}">Editar</a>
+                    <a class="btn btn-danger atam" href="/eliminar/{{usuario.id}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <form action="/criar">
+        <button type="submit" class="btn btn-primary" style="width: 120px; margin-left: 100px; margin-bottom: 20px">Criar usuário</button>
+    </form>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mi_script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+
+</html>

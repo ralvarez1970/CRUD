@@ -1,0 +1,41 @@
+
+body {
+    font-family: Arial;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.container {
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.box_form {
+    width: 600px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.box_dados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 400px;
+    margin-right: 50px;
+
+}
+
+.box_mascota {
+    width: 300px;
+}

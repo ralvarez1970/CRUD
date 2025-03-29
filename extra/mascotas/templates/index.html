@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<html lang="en">
+
+<body>
+    <h1>Os bichinhos</h1>
+
+    <div class="container">
+        <div class="box_dados">
+            {% for una_mascota in todas_mascotas %}
+            <div>
+                <p></p>
+                <p>Nome: {{una_mascota.nombre}}</p>
+                <p>Tipo: {{una_mascota.tipo}}</p>
+                <p>Cor: {{una_mascota.color}}</p>
+                <p>ID: {{una_mascota.id}}</p>
+                <form class="form_container" action="/get_data_mascota" method="post">
+                    <input type="hidden" name="id_mascota" value={{una_mascota.id}}>
+                    <button type="submit" class="btn"
+                        style="border: solid black; background-color: yellow; width: 90px; margin-bottom: 20px">Editar</button>
+                </form>
+                <form class="form_container" action="/elimina_mascota" method="post">
+                    <input type="hidden" name="id_mascota" value={{una_mascota.id}}>
+                    <button type="submit" class="btn"
+                        style="border: solid black; background-color: red; width: 90px; margin-bottom: 20px">Eliminar</button>
+                </form>
+                <h2>/////</h2>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="box_form">
+            <form action="/entra_mascota" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" name="nome" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Cor:</label>
+                    <input type="text" name="cor" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tipo:</label>
+                    <input type="text" name="tipo" class="form-control">
+                </div>
+                <button type="submit" class="btn" style="border: solid black; background-color: rgb(171, 189, 215);">Criar
+                    mascota</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mi_script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+
+</html>

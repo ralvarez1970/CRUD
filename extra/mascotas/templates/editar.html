@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<html lang="en">
+
+<body>
+    <h1>Editar mascota</h1>
+
+    <div class="container">
+        <div class="box_dados">
+        </div>
+        <div class="box_form">
+            <form action="/update_mascota" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" name="nome" class="form-control" value="{{nombre}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Cor:</label>
+                    <input type="text" name="cor" class="form-control" value={{color}}>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tipo:</label>
+                    <input type="text" name="tipo" class="form-control" value={{tipo}}>
+
+                </div>
+                <input type="hidden" name="id_mascota" value={{id}}>
+                <button type="submit" class="btn"
+                    style="border: solid black; background-color: rgb(171, 189, 215);">Editar
+                    mascota</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mi_script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+
+</html>

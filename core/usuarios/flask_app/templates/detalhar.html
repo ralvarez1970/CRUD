@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes usuários</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<html lang="en">
+
+<body>
+    <h1 style="margin-top: 30px;">Detalhes do usuário {{usuario.nome}} {{usuario.sobrenome}}</h1>
+
+    <div class="container">
+        <div class="box_form">
+            <h4>ID: {{usuario.id}}</h4>
+            <h4>Nome: {{usuario.nome}}</h4>
+            <h4>Sobrenome: {{usuario.sobrenome}}</h4>
+            <h4>email: {{usuario.email}}</h4>
+            <h4>Criado em: {{ usuario.created_at.strftime('%d/%m/%Y') }}</h4>
+            <h4>Última atualização em: {{ usuario.created_at.strftime('%d/%m/%Y') }}</h4>
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-warning atam" style="margin-top: 20px;" href="/editar/{{usuario.id}}">Editar</a>
+            <a class="btn btn-danger atam" style="margin-top: 20px; margin-left: 20px;" href="/eliminar/{{usuario.id}}">Eliminar</a>
+            <a class="btn btn-secondary atam" style="margin-top: 20px; margin-left: 20px;" href="/">Retornar</a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mi_script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+
+</html>

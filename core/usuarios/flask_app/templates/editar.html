@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar usuário</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<html lang="en">
+
+<body>
+    <h1 style="margin-top: 30px;">Editar usuário {{usuario.nome}} {{usuario.sobrenome}}</h1>
+
+    <div class="container">
+        <div class="box_form">
+            <form action="/atualizar/{{usuario.id}}" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" name="nome" class="form-control" value="{{usuario.nome}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Sobrenome:</label>
+                    <input type="text" name="sobrenome" class="form-control" value={{usuario.sobrenome}}>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">email:</label>
+                    <input type="email" name="email" class="form-control" value={{usuario.email}}>
+
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 150px; margin-top: 20px">Atualizar
+                    usuário</button>
+            </form>
+
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-secondary atam" style="width: 150px; margin-left: 20px;"
+                href="/">Retornar</a>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mi_script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+
+</html>
