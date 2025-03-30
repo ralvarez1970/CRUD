@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudantes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<html lang="en">
+
+<body>
+    <h2 style="margin-top: 30px; text-align: center;">Estudantes cadastrados</h2>
+
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">email</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Matrículado em</th>
+                <th scope="col"></th>
+            </tr>
+            {% for estudante in estudantes %}
+            <tr>
+                <td>{{estudante.nome}}</td>
+                <td>{{estudante.sobrenome}}</td>
+                <td>{{estudante.email}}</td>
+                <td>{{estudante.idade}}</td>
+                <td>{{estudante.curso}}</td>
+                <td>{{estudante.updated_at.strftime('%d/%m/%Y')}}</td>
+                <td>
+                    <a class="btn btn-warning atam" href="/editar_estudante/{{estudante.id}}">Editar</a>
+                    <a class="btn btn-danger atam" href="/eliminar_estudante/{{estudante.id}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <form action="/criar_estudante" style="margin-top: 20px;">
+        <button type="submit" class="btn btn-primary atam" style="width: 220px; margin-left: 100px">Matricular novo
+            estudante</button>
+    </form>
+    <div class="box_botoes">
+        <a class="btn btn-secondary atam" style="width: 220px; margin-left: 100px;" href="/">Retornar para
+            cursos</a>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mi_script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+
+</html>

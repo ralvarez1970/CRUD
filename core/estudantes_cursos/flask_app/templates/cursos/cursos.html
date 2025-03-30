@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudantes & Cursos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datatables.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toastr.min.css') }}" />
+</head>
+<html lang="en">
+
+<body>
+
+    <div class="container_cursos">
+        <div class="coluna1">
+            <h2 style="margin-bottom: 40px;">Novo curso</h2>
+            <form action="/incluir_curso" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" name="nome" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 120px; margin-top: 5px">Criar
+                    curso</button>
+            </form>
+        </div>
+        <div>
+            <div class="coluna2">
+                <h2 style="margin-bottom: 20px">Todos os cursos</h2>
+                <div class="inside_box">
+                    <table class="table table-striped">
+                        <tr>
+                            <th scope="col" style="width: 370px">Nome</th>
+                            <th scope="col" style="width: 300px"></th>
+                        </tr>
+                        {% for curso in cursos %}
+                        <tr>
+                            <td>{{curso.nome}}</td>
+                            <td>
+                                <a class="btn btn-info atam" href="/curso/{{curso.id}}">Mostrar</a>
+                                <a class="btn btn-warning atam" href="/editar_curso/{{curso.id}}">Editar</a>
+                                <a class="btn btn-danger atam" href="/eliminar_curso/{{curso.id}}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <form action="/criar_estudante" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary"
+                    style="width: 180px; margin-left: 50px; margin-bottom: 20px">Matricular estudante</button>
+            </form>
+            <form action="/estudantes" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-secondary"
+                    style="width: 180px; margin-left: 50px; margin-bottom: 20px">Mostrar estudantes</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/datatables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toastr.min.js') }}"></script>
+
+</body>
+
+</html>

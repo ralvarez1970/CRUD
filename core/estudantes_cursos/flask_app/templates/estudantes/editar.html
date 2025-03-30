@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar estudante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datatables.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toastr.min.css') }}" />
+</head>
+<html lang="en">
+
+<body>
+    <h2 style="margin-top: 30px; text-align: center;">Editar estudante {{estudante.nome}} {{estudante.sobrenome}}</h2>
+
+    <div class="container">
+        <div class="box_form" style="height: 500px">
+            <form action="/atualizar_estudante/{{estudante.id}}" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" name="nome" class="form-control" value="{{estudante.nome}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Sobrenome:</label>
+                    <input type="text" name="sobrenome" class="form-control" value={{estudante.sobrenome}}>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">email:</label>
+                    <input type="email" name="email" class="form-control" value={{estudante.email}}>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">idade:</label>
+                    <input type="number" name="idade" class="form-control" value={{estudante.idade}}>
+
+                </div>
+                <div>
+                    <label class="form-label">Curso:</label>
+                    <select class="select" name="curso">
+                        {% for cursos in cursos %}
+                        <option value="{{cursos.id}}">{{cursos.nome}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 180px; margin-top: 30px">Atualizar
+                    estudante</button>
+            </form>
+
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-secondary atam" style="width: 180px; margin-left: 20px;" href="/estudantes">Listar estudantes</a>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/datatables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toastr.min.js') }}"></script>
+
+    {# Flask “flash” messages #}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <script>
+        $(document).ready(function () {
+            {% for message in messages %}
+            toastr.warning("{{ message }}");
+            {% endfor %}
+        });
+    </script>
+    {% endif %}
+    {% endwith %}
+
+</body>
+
+</html>

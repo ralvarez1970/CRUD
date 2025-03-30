@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar estudante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datatables.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toastr.min.css') }}" />
+</head>
+<html lang="en">
+
+<body>
+    <h2 style="margin-top: 30px; text-align: center;">Matricular estudante</h2>
+
+    <div class="container">
+        <div class="box_form">
+            <form action="/incluir_estudante" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            <label class="form-label l2">Curso:</label>
+                        </td>
+                        <td>
+                            <select class="select" name="curso" required>
+                                <option value="" disabled selected> -- Escolha o curso --</option>
+                                {% for cursos in cursos %}
+                                <option value="{{cursos.id}}">{{cursos.nome}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label l2">Nome:</label>
+                        </td>
+                        <td>
+                            <input type="text" class="select" name="nome" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label l2">Sobrenome:</label>
+                        </td>
+                        <td>
+                            <input type="text" class="select" name="sobrenome" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label l2">email:</label>
+                        </td>
+                        <td>
+                            <input type="email" class="select" name="email" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label l2">Idade:</label>
+                        </td>
+                        <td>
+                            <input type="number" class="select" name="idade" required>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn btn-primary"
+                    style="width: 150px; margin-left: 10px; margin-top: 40px">Matricular</button>
+            </form>
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-primary atam" style="width: 150px; margin-left: 30px;" href="/estudantes">Ver estudantes</a>
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-secondary atam" style="width: 150px; margin-left: 30px;" href="/">Ver cursos</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/datatables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toastr.min.js') }}"></script>
+
+
+</body>
+
+</html>
