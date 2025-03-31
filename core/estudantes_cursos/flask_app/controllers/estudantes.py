@@ -17,7 +17,7 @@ def estudantes():
 @app.route('/criar_estudante')
 def criar_estudante():
     cursos = Curso.get_all()
-    return render_template("estudantes/criar.html", cursos=cursos, id=id)
+    return render_template("estudantes/criar.html", cursos=cursos)
 
 
 @app.route('/incluir_estudante', methods=['POST'])
@@ -70,6 +70,7 @@ def atualizar_estudante(id):
 def eliminar_estudante(id):
     Estudante.delete(id)
     return redirect ('/estudantes')
+
 
 @app.route("/cancelar_matricula/<int:id_curso>/<int:id_estudante>")
 def cancelar_matricula(id_curso, id_estudante):

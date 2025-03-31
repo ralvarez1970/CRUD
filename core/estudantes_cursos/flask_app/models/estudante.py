@@ -39,6 +39,7 @@ class Estudante:
         query = "SELECT * FROM estudantes WHERE id = %(id)s;"
         data = { "id": id }
         estudante = connectToMySQL('db_esquema_estudantes_cursos').query_db(query, data)
+        estudante[0]['curso'] = ''
         return cls(estudante[0])
 
 

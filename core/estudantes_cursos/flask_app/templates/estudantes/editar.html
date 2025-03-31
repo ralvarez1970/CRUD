@@ -19,25 +19,25 @@
             <form action="/atualizar_estudante/{{estudante.id}}" method="post">
                 <div class="mb-3">
                     <label class="form-label">Nome:</label>
-                    <input type="text" name="nome" class="form-control" value="{{estudante.nome}}">
+                    <input type="text" name="nome" class="form-control" value="{{estudante.nome}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Sobrenome:</label>
-                    <input type="text" name="sobrenome" class="form-control" value={{estudante.sobrenome}}>
+                    <input type="text" name="sobrenome" class="form-control" value={{estudante.sobrenome}} required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">email:</label>
-                    <input type="email" name="email" class="form-control" value={{estudante.email}}>
+                    <input type="email" name="email" class="form-control" value={{estudante.email}} required>
 
                 </div>
                 <div class="mb-3">
                     <label class="form-label">idade:</label>
-                    <input type="number" name="idade" class="form-control" value={{estudante.idade}}>
+                    <input type="number" name="idade" class="form-control" value={{estudante.idade}} required>
 
                 </div>
                 <div>
                     <label class="form-label">Curso:</label>
-                    <select class="select" name="curso">
+                    <select class="select" name="curso" required>
                         {% for cursos in cursos %}
                         <option value="{{cursos.id}}">{{cursos.nome}}</option>
                         {% endfor %}
@@ -57,19 +57,6 @@
     <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/datatables.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/toastr.min.js') }}"></script>
-
-    {# Flask “flash” messages #}
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <script>
-        $(document).ready(function () {
-            {% for message in messages %}
-            toastr.warning("{{ message }}");
-            {% endfor %}
-        });
-    </script>
-    {% endif %}
-    {% endwith %}
 
 </body>
 
