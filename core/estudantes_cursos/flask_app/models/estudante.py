@@ -25,11 +25,9 @@ class Estudante:
         FROM estudantes
         LEFT JOIN cursos
         ON estudantes.curso_id = cursos.id;"""
-
         results = connectToMySQL('db_esquema_estudantes_cursos').query_db(query)
         estudantes = []
         for estudante in results:
-            print (estudante)
             estudantes.append( cls(estudante) )
         return estudantes
 
