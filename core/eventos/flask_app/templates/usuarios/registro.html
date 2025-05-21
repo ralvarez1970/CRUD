@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}Gerenciamento de Eventos{% endblock %}
+
+{% block conteudo %}
+<div class="container_registro">
+    <div class="coluna1">
+        <h2 style="margin-bottom: 20px;">Registrar</h2>
+        <form action="/registrar_usuario" method="post">
+            <div class="mb-3">
+                <label class="form-label" style="margin-top: 5px;">Nome:</label>
+                <input type="text" name="nome" class="form-control" required>
+                <label class="form-label" style="margin-top: 5px;">Sobrenome:</label>
+                <input type="text" name="sobrenome" class="form-control" required>
+                <label class="form-label" style="margin-top: 5px;">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+                <label class="form-label" style="margin-top: 5px;">Senha:</label>
+                <input type="password" name="senha" class="form-control" required>
+                <label class="form-label" style="margin-top: 5px;">Confirmar Senha:</label>
+                <input type="password" name="confirmacao_senha" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 150px; margin-top: 5px">Registrar usuário</button>
+        </form>
+    </div>
+    <div class="coluna2">
+        <h2 style="margin-bottom: 20px">Login</h2>
+        <form action="/iniciar_sessao" method="post">
+            <div class="mb-3"> 
+                <label class="form-label" style="margin-top: 5px;">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+                <label class="form-label" style="margin-top: 5px;">Senha:</label>
+                <input type="password" name="senha" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 150px; margin-top: 5px">Entrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

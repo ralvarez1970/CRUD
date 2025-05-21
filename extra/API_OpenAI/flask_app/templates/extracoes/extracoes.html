@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block titulo %}Extração fatos & dados{% endblock %}
+
+{% block conteudo %}
+
+<div class="container">
+    <h2 style="margin-top: 40px;">Welcome {{nome}} | Extração de fatos</h2>
+    <form class="container_card" action="/extrair_fatos" method="post">
+        <textarea id="usuario" name="texto" placeholder="Entre seu texto" class="entra_dados"
+            style="margin-top: 20px; width: 1200px; height: 200px;"></textarea>
+        <button type="submit" id="botao_API" class="botao" style="margin-top: 20px;">Extrair fatos & dados</button>
+    </form>
+
+    <div class="container_card" style="margin-top: 40px;">
+        <h3>Fatos e dados extraídos</h3>
+        <div class="caixa_texto">
+            {% if fatos_extraidos %}
+            <ul>
+                {% for fato in fatos_extraidos %}
+                <li>
+                    <strong>{{ fato.statement }}</strong><br>
+                    Fonte: {{ fato.source }}<br>
+                    Confiança: {{ fato.confidence }}
+
+                    {% if fato.data_elements %}
+                    <ul>
+                        {% for elemento in fato.data_elements %}
+                        <li>
+                            <em>Tipo:</em> {{ elemento.type }}<br>
+                            <em>Valor:</em> {{ elemento.value }}<br>
+                            <em>Contexto:</em> {{ elemento.context }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Nenhum fato extraído.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

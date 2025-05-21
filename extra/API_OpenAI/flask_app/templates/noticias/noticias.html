@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo %}Avaliação de Texto{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <h2 style="margin-top: 40px;">Olá {{ nome }} | Entre a sua notícia</h2>
+
+    <form action="/guardar_noticia" method="post" class="container_card" style="margin-top: 30px;">
+        <textarea name="texto" placeholder="Cole seu texto aqui" class="entra_dados"
+            style="width: 100%; height: 200px;"></textarea>
+        <button type="submit" class="botao" style="margin-top: 20px;">Guardar notícia</button>
+    </form>
+    <h2 style="margin-top: 50 px;">Número de notícias na base: {{numero_noticias}}</h2>
+</div>
+{% endblock %}

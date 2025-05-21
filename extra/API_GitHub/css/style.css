@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: rgb(197, 197, 197);
+}
+
+.entra_dados {
+    width: 300px;
+    height: 40px;
+    font-size: large;
+    margin-bottom: 40px;
+}
+
+.botao {
+    background-color: coral;
+    width: 300px;
+    height: 40px;
+    font-size: large;
+}
+
+
+.formulario {
+    width: 400px;
+    height: 300pxvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.caixa_info {
+    width: 400px;
+    height: 300pxvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.foto {
+    width: 50px;
+    height: 50px;
+}

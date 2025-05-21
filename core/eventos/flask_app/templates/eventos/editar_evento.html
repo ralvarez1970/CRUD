@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block titulo %}Editar Evento{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <div class="caixa_welcome">
+        <div class="welcome_texto">
+            <h3>Editar Evento | Usuário: {{nome}} </h3>
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-primary atam" style="width: 150px; margin-left: 330px;" href="/eventos">Voltar</a>
+        </div>
+        <div class="box_botoes">
+            <a class="btn btn-secondary atam" style="width: 150px; margin-left: 30px;" href="/fechar_sessao">Fechar sessão</a>
+        </div>
+    </div>
+    <div class="box_form" style="height:500px">
+        <form action="/update_evento" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <label class="form-label l2">Nome do Evento:</label>
+                    </td>
+                    <td>
+                        <input type="text" class="select" name="evento" value="{{evento.evento}}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label l2">Localização:</label>
+                    </td>
+                    <td>
+                        <input type="text" class="select" name="localizacao" value="{{evento.localizacao}}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label l2">Data:</label>
+                    </td>
+                    <td>
+                        <input type="date" class="select" name="data" value="{{evento.data}}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label l2">Detalhes:</label>
+                    </td>
+                    <td>
+                        <textarea class="select" name="detalhes" style="width: 300px; height: 150px;" required>{{detalhes}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="id" value="{{evento.id}}">
+            <button type="submit" class="btn btn-primary"
+                style="width: 150px; margin-left: 10px; margin-top: 40px">Salvar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

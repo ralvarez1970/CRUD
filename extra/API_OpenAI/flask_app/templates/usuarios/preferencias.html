@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block titulo %}Tradutor{% endblock %}
+
+{% block conteudo %}
+<div class="container_registro">
+    <form id="onboarding-survey">
+
+        <h4 style="margin-top: 40px">1. ¿Cómo describirías tu perspectiva política?</h4>
+        <select name="politica">
+            <option>Me identifico con la izquierda</option>
+            <option>Me inclino al centro-izquierda</option>
+            <option>Me considero de centro</option>
+            <option>Me inclino al centro-derecha</option>
+            <option>Me identifico con la derecha</option>
+            <option>No me gusta etiquetarme</option>
+            <option>Prefiero no responder</option>
+        </select>
+
+        <h4 style="margin-top: 40px">2. ¿Qué temas te mueven o te importan más? (elige 2–3)</h4>
+        <p>Estos temas reflejan tus valores y visión del mundo.</p>
+
+        <!-- Valores sociales y generales -->
+        <label><input type="checkbox" name="valores" value="Justicia social y equidad"> Justicia social y
+            equidad</label><br>
+        <label><input type="checkbox" name="valores" value="Medio ambiente y cambio climático"> Medio ambiente y cambio
+            climático</label><br>
+        <label><input type="checkbox" name="valores" value="Libertades civiles y derechos humanos"> Libertades civiles y
+            derechos humanos</label><br>
+        <label><input type="checkbox" name="valores" value="Tecnología y futuro digital"> Tecnología y futuro
+            digital</label><br>
+        <label><input type="checkbox" name="valores" value="Gobernanza y transparencia"> Gobernanza y
+            transparencia</label><br>
+
+        <!-- Economía y desarrollo -->
+        <label><input type="checkbox" name="valores" value="Desigualdad económica"> Desigualdad económica</label><br>
+        <label><input type="checkbox" name="valores" value="Derechos laborales"> Derechos laborales</label><br>
+        <label><input type="checkbox" name="valores" value="Economía verde y sostenibilidad financiera"> Economía verde
+            y sostenibilidad financiera</label><br>
+        <label><input type="checkbox" name="valores" value="Desarrollo económico local"> Desarrollo económico
+            local</label><br>
+        <label><input type="checkbox" name="valores" value="Políticas fiscales y tributarias"> Políticas fiscales y
+            tributarias</label><br>
+        <label><input type="checkbox" name="valores" value="Inversiones y mercados financieros"> Inversiones y mercados
+            financieros</label><br>
+        <label><input type="checkbox" name="valores" value="Inflación y costo de vida"> Inflación y costo de
+            vida</label><br>
+        <label><input type="checkbox" name="valores" value="Emprendimiento e innovación"> Emprendimiento e
+            innovación</label><br>
+
+        <!-- Seguridad -->
+        <label><input type="checkbox" name="valores" value="Seguridad ciudadana"> Seguridad ciudadana</label><br>
+        <label><input type="checkbox" name="valores" value="Prevención del crimen y violencia urbana"> Prevención del
+            crimen y violencia urbana</label><br>
+        <label><input type="checkbox" name="valores" value="Reforma policial y justicia penal"> Reforma policial y
+            justicia penal</label><br>
+        <label><input type="checkbox" name="valores" value="Violencia de género"> Violencia de género</label><br>
+        <label><input type="checkbox" name="valores" value="Violencia armada y control de armas"> Violencia armada y
+            control de armas</label><br>
+        <label><input type="checkbox" name="valores" value="Tráfico de drogas y crimen organizado"> Tráfico de drogas y
+            crimen organizado</label><br>
+
+        <!-- Otros valores relevantes -->
+        <label><input type="checkbox" name="valores" value="Privacidad digital"> Privacidad digital</label><br>
+        <label><input type="checkbox" name="valores" value="Acceso a la vivienda"> Acceso a la vivienda</label><br>
+        <label><input type="checkbox" name="valores" value="Libertad religiosa"> Libertad religiosa</label><br>
+        <label><input type="checkbox" name="valores" value="Corrupción política"> Corrupción política</label><br>
+        <label><input type="checkbox" name="valores" value="Bienestar animal"> Bienestar animal</label><br>
+        <label><input type="checkbox" name="valores" value="Seguridad alimentaria"> Seguridad alimentaria</label><br>
+        <label><input type="checkbox" name="valores" value="Acceso a la justicia"> Acceso a la justicia</label><br>
+        <label><input type="checkbox" name="valores" value="Sostenibilidad urbana"> Sostenibilidad urbana</label><br>
+
+        <h4 style="margin-top: 40px">3. ¿Qué formato prefieres al informarte?</h4>
+        <select name="formato_preferido">
+            <option>Titulares rápidos</option>
+            <option>Resúmenes breves (1 min)</option>
+            <option>Análisis detallado</option>
+            <option>Video o multimedia</option>
+            <option>Podcasts o audio</option>
+            <option>Gráficos / visualizaciones interactivas</option>
+            <option>No tengo preferencia</option>
+        </select>
+
+        <h4 style="margin-top: 40px">4. ¿Con qué frecuencia te gustaría recibir actualizaciones?</h4>
+        <select name="frecuencia">
+            <option>En tiempo real</option>
+            <option>Una vez al día</option>
+            <option>Un resumen al final del día</option>
+            <option>Una vez a la semana</option>
+            <option>Solo cuando ocurra algo importante</option>
+        </select>
+
+        <h4 style="margin-top: 40px">¿Cuánta profundidad deseas en los contenidos?</h4>
+        <select name="profundidad">
+            <option>Solo los datos clave</option>
+            <option>Resumen + contexto</option>
+            <option>Opiniones alineadas con mi visión</option>
+            <option>Opiniones diversas también</option>
+            <option>Depende del tema</option>
+        </select>
+
+        <h4 style="margin-top: 40px">5. ¿Qué tipo de tono prefieres en el contenido?</h4>
+        <select name="tono">
+            <option>Neutro y objetivo</option>
+            <option>Analítico y riguroso</option>
+            <option>Crítico y desafiante</option>
+            <option>Inspirador y positivo</option>
+            <option>Personal y cercano</option>
+            <option>Irónico o con humor inteligente</option>
+        </select>
+
+        <h4 style="margin-top: 40px">6. ¿Qué tanto te interesa conocer puntos de vista distintos al tuyo?</h4>
+        <select name="contrastes">
+            <option>Me interesa escuchar otras voces frecuentemente</option>
+            <option>A veces está bien ver otras posturas</option>
+            <option>Solo si están bien explicadas</option>
+            <option>Prefiero contenidos alineados con mi visión</option>
+            <option>No lo considero necesario</option>
+        </select>
+
+        <h4 style="margin-top: 40px">7. ¿Qué esperas obtener al usar esta plataforma? (elige hasta 2)</h4>
+        <label><input type="checkbox" name="objetivos" value="Estar bien informado con poco tiempo"> Estar bien
+            informado con poco tiempo</label><br>
+        <label><input type="checkbox" name="objetivos" value="Comprender múltiples perspectivas"> Comprender múltiples
+            perspectivas</label><br>
+        <label><input type="checkbox" name="objetivos" value="Evitar sesgos y desinformación"> Evitar sesgos y
+            desinformación</label><br>
+        <label><input type="checkbox" name="objetivos" value="Descubrir voces nuevas y distintas"> Descubrir voces
+            nuevas y distintas</label><br>
+
+        <h4 style="margin-top: 40px">8. ¿Qué temas te interesan seguir? (elige 3–5)</h4>
+        <label><input type="checkbox" name="temas_interes" value="Inteligencia artificial"> Inteligencia
+            artificial</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Energía y transición verde"> Energía y transición
+            verde</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Política internacional"> Política
+            internacional</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Educación y aprendizaje"> Educación y
+            aprendizaje</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Medio ambiente"> Medio ambiente</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Emprendimiento y startups"> Emprendimiento y
+            startups</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Salud y biotecnología"> Salud y
+            biotecnología</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Moda y estilo de vida"> Moda y estilo de
+            vida</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Cultura y artes"> Cultura y artes</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Sociedad y comportamiento"> Sociedad y
+            comportamiento</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Ciudades y urbanismo"> Ciudades y
+            urbanismo</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Negocios y empresas"> Negocios y empresas</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Inversiones y mercados"> Inversiones y
+            mercados</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Tendencias tecnológicas"> Tendencias
+            tecnológicas</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Consumo responsable"> Consumo responsable</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Turismo y movilidad"> Turismo y movilidad</label><br>
+        <label><input type="checkbox" name="temas_interes" value="Arquitectura y diseño"> Arquitectura y
+            diseño</label><br>
+
+        <br>
+        <button type="submit" style="margin-bottom: 60px;">Guardar preferencias</button>
+    </form>
+
+
+</div>
+{% endblock %}

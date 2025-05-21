@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}Avaliação de Texto{% endblock %}
+
+{% block conteudo %}
+
+<h1>Avaliação de Texto</h1>
+
+<p><strong>Texto enviado:</strong></p>
+<blockquote>{{ noticia.news }}</blockquote>
+
+<p><strong>Status:</strong></p>
+{% if noticia.explanation %}
+    <p><strong>Tipo:</strong> {{ noticia.type }}</p>
+    <p><strong>Explicação:</strong> {{ noticia.explanation }}</p>
+{% else %}
+    <p>Processando... recarregue esta página em alguns segundos.</p>
+{% endif %}
+
+
+{% endblock %}

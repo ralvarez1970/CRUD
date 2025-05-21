@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo %}Avaliação de Texto{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <h2 style="margin-top: 40px;">Olá {{ nome }} | Avaliação de Texto</h2>
+
+    <form action="/avaliar_texto" method="post" class="container_card" style="margin-top: 30px;">
+        <textarea name="texto" placeholder="Cole seu texto aqui" class="entra_dados"
+            style="width: 100%; height: 200px;"></textarea>
+        <button type="submit" class="botao" style="margin-top: 20px;">Avaliar Texto</button>
+    </form>
+
+    {% if avaliacao %}
+    <div class="container_card" style="margin-top: 40px;">
+        <h3>Resultado da Avaliação</h3>
+        <p><strong>Score:</strong>
+            {% if avaliacao.score == 1 %}
+                <span style="color: green;">+1 (Factual)</span>
+            {% elif avaliacao.score == -1 %}
+                <span style="color: red;">-1 (Opinião)</span>
+            {% else %}
+                {{ avaliacao.score }}
+            {% endif %}
+        </p>
+        <p><strong>Explicação:</strong> {{ avaliacao.explanation }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}Parque Aventura{% endblock %}
+
+{% block conteudo %}
+
+<div class="container">
+    <h2 style="margin-top: 40px;">Welcome {{nome}} | Tradução de textos</h2>
+    <form class="container_card" action="/traduzir_texto" method="post">
+        <textarea id="usuario" name="texto" placeholder="Entre seu texto" class="entra_dados"
+            style="margin-top: 20px; width: 1200px; height: 200px;"></textarea>
+        <button type="submit" id="botao_API" class="botao" style="margin-top: 20px;">Traduzir texto</button>
+    </form>
+
+    <div class="container_card" style="margin-top: 40px;">
+        <h3>Seu texto traduzido</h3>
+        <div class="caixa_texto">
+            <p>{{texto_traduzido}}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
